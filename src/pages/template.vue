@@ -12,7 +12,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.launch {
-}
-</style>
+<style lang="scss" scoped></style>
