@@ -18,7 +18,7 @@ export default {
   onLoad() {},
   methods: {
     handleCreate() {
-      this.$router.push({ path: "/pages/wallet/createWallet/index" });
+      this.$Router.push({ path: "/pages/wallet/createWallet/index" });
     },
   },
 };

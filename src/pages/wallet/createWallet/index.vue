@@ -16,15 +16,34 @@
       <!-- 密码 -->
       <input class="create-wallet-input" type="text" placeholder="密码" />
       <!-- 密码提示 -->
-      <div class="create-wallet-tips">
+      <view class="create-wallet-tips">
         密码不少于8位字符，建议混合大小写字母、数字、特殊符号
-      </div>
+      </view>
       <!-- 重复密码 -->
       <input class="create-wallet-input" type="text" placeholder="重复密码" />
       <!-- 隐私条款 -->
-      <div class="create-choose">
-        image
-      </div>
+      <view class="create-choose">
+        <!-- 选中 -->
+        <template v-if="isChosen">
+          <image
+            class="create-choose-icon"
+            src="/static/images/choose_yes@2x.png"
+            @tap="handleChoose"
+          ></image>
+        </template>
+        <!-- 未选中 -->
+        <template v-else>
+          <image
+            class="create-choose-icon"
+            src="/static/images/choose_no@2x.png"
+            @tap="handleChoose"
+          ></image>
+        </template>
+        <view class="create-choose-tips">我已经仔细阅读并同意</view>
+        <view class="create-choose-protocol">服务及隐私条款</view>
+      </view>
+      <!-- 创建 -->
+      <view class="create-btn">创建钱包</view>
     </view>
   </view>
 </template>
@@ -32,10 +51,18 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      //隐私条款是否勾选
+      isChosen: false,
+    };
   },
   onLoad() {},
-  methods: {},
+  methods: {
+    // 切换选中
+    handleChoose() {
+      this.isChosen = !this.isChosen;
+    },
+  },
 };
 </script>
 
@@ -70,7 +97,7 @@ export default {
       padding-bottom: 20rpx;
       width: 100%;
       box-sizing: border-box;
-      border-bottom: 1rpx solid #eeeeee;
+      border-bottom: 2rpx solid #eeeeee;
       font-family: PingFangSC-Regular, PingFang SC;
       font-weight: 400;
       color: #222222;
@@ -84,6 +111,32 @@ export default {
       color: #eb2650;
       text-align: right;
       line-height: 34rpx;
+    }
+    .create-choose {
+      @include flex(flex-start, center);
+      margin-top: 20rpx;
+      .create-choose-icon {
+        margin-right: 16rpx;
+        width: 32rpx;
+        height: 32rpx;
+      }
+      .create-choose-tips {
+        margin-right: 10rpx;
+        font-size: 24rpx;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #9b9b9b;
+      }
+      .create-choose-protocol {
+        font-size: 24rpx;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #2b80c2;
+      }
+    }
+    .create-btn {
+      @include button_theme_disabled();
+      margin-top: 60rpx;
     }
   }
 }
