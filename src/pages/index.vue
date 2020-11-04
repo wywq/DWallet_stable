@@ -4,7 +4,7 @@
     <image
       class="launch-icon"
       src="/static/images/button_02@2x.png"
-      @click="handleCreate"
+      @tap="handleCreate"
     ></image>
     <image class="launch-icon" src="/static/images/button_01@2x.png"></image>
   </view>
@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  components: {},
   data() {
     return {};
   },
