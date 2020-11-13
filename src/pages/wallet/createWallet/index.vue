@@ -62,6 +62,13 @@ export default {
     handleChoose() {
       this.isChosen = !this.isChosen;
     },
+    //
+    handleInput() {
+      uni.showToast({
+        title: "标题",
+        duration: 2000,
+      });
+    },
   },
 };
 </script>

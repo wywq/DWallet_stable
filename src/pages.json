@@ -1,12 +1,5 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		//首页
-		{
-			"path": "pages/index",
-			"style": {
-				"titleNView": false
-			}
-		},
 		//钱包首页
 		{
 			"path": "pages/wallet/index",
@@ -14,8 +7,15 @@
 				"titleNView": false
 			}
 		},
+		//首页
+		{
+			"path": "pages/basic/index",
+			"style": {
+				"titleNView": false
+			}
+		},
 		//钱包
-		//创建钱包
+		// //创建钱包
 		{
 			"path": "pages/wallet/createWallet/index",
 			"style": {
